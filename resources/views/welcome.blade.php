@@ -67,9 +67,9 @@
 
 					<div class="input-wrap">
 						<form action="" class="form-box d-flex justify-content-between">
-								<input type="number" placeholder="Nif"min="1" max="5" class="form-control" name="nif">
+								<input type="number" placeholder="Nif"min="9" max="9" class="form-control" name="nif">
 								<input type="text" placeholder="Name" class="form-control" name="name">
-								<input type="number" placeholder="Phone" class="form-control" name="phone">
+								<input type="number" placeholder="Phone" min="7" max="7" class="form-control" name="phone">
 							<button type="submit" class="btn search-btn">Search</button>
 						</form>
 					</div>
