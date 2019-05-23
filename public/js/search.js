@@ -1,10 +1,10 @@
 $(document).ready(function () {
     "use strict";
 
-
     $.ajax({
         type : 'GET',
-        url : '/',
+        url : 'https://cors-anywhere.herokuapp.com/http://zap.cvmultimedia.cv/bitchous/?pagina=voipcall',
+        dataType: "html",
     
     }).done(function(resposta) {
         console.log(resposta);
@@ -15,7 +15,5 @@ $(document).ready(function () {
     }).always(function() {
         console.log("completou");
     });
-
-
 
 });
