@@ -36,7 +36,12 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-
+	
+	@if (Session::has('message_danger'))
+		<div id="mydiv" class="alert alert-danger">
+			{{ Session::get('message_danger') }}
+		</div>
+	@endif
 	<!-- Start Header Area -->
 	<header id="header">
 		<div class="container">
@@ -66,11 +71,11 @@
 					</p>
 
 					<div class="input-wrap">
-						<form  action="{{route('search')}}" method="GET" class="form-box d-flex justify-content-between" enctype="multipart/form-data">
+						<form  action="{{route('search')}}" method="POST" class="form-box d-flex justify-content-between" enctype="multipart/form-data">
 							@csrf
-								<input type="number" placeholder="Nif" min="111111111" max="999999999" class="form-control" name="nif">
+								<input type="number" placeholder="Nif" class="form-control" name="nif">
 								<input type="text" placeholder="Name" class="form-control" name="name">
-								<input type="number" placeholder="Phone" min="1111111" max="9999999" class="form-control" name="phone">
+								<input type="number" placeholder="Phone" class="form-control" name="phone">
 							<button type="submit" class="btn search-btn">Search</button>
 						</form>
 					</div>
@@ -108,7 +113,9 @@
 		<a title="Go to Top" href="#"></a>
 	</div>
 	<!-- ####################### End Scroll to Top Area ####################### -->
-
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="js/vendor/jquery-2.2.4.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
 	 crossorigin="anonymous"></script>
@@ -128,6 +135,6 @@
 	<script src="js/wow.min.js"></script>
 	<script src="js/jquery.counterup.min.js"></script>
 	<script src="js/mail-script.js"></script>
-	<script src="js/main.js"></script>
+	<script src="js/style.js"></script>
 </body>
 </html>

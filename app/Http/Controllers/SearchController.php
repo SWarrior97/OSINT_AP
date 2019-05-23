@@ -7,17 +7,33 @@ use Illuminate\Http\Request;
 class SearchController extends Controller
 {
     public function search(Request $request){
-        //dd($request->nif);
-        $num_length = strlen((string)$request->nif);
+        $nif = $request->nif;
+        $name = $request->name;
+        $phone = $request->phone;
+       
 
-        if($num_length != 9){
-            return back()->withErrors(['message'=>'Nif must contais 9 numbers']);
+        if($nif != null){
+            if(strlen((string)$nif)!= 9){
+                return back()->with(['message_danger'=>'Nif must contais 9 numbers']);
+            } 
         }else{
-            if(strlen((string)$request->phone)!=7){
-                return back()->withErrors(['message'=>'Phone number must contais 7 numbers']);
+            if($phone !=null){
+                if(strlen((string)$phone)!= 7){
+                    return back()->with(['message_danger'=>'Phone number must contais 7 numbers']);
+                } 
             }else{
-                //all good
+                if($name == null){
+                    return  redirect('/')->with(['message_danger'=>'Please give some information']);
+                }
             }
         }
+        
+        //dd($nif);
+        
+        //return view('result')->with('nif','name','phone');
+        return view('result',compact('nif','name','phone'));
+        //return redirect('/test')->with('nif','name','phone');
     }
+
+    
 }
