@@ -70,12 +70,16 @@
 						Retrieve information from open source
 					</p>
 
-					<div class="input-wrap">
+					<div >
 						<form  action="{{route('search')}}" method="POST" class="form-box d-flex justify-content-between" enctype="multipart/form-data">
 							@csrf
 								<input type="number" placeholder="Nif" class="form-control" name="nif">
 								<input type="text" placeholder="Name" class="form-control" name="name">
 								<input type="number" placeholder="Phone" class="form-control" name="phone">
+								<select id="input" class="form-control" name="type">
+									<option value="singular">Singular</option>
+									<option value="empresa">Empresa</option>
+								</select>
 							<button type="submit" class="btn search-btn">Search</button>
 						</form>
 					</div>

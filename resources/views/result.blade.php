@@ -15,6 +15,7 @@
         <meta charset="UTF-8">
         <!-- Site Title -->
         <title>OSint Cape Vert</title>
+        <link rel="stylesheet" href="css/result.css">
 
         <!--
                 Google Font
@@ -23,10 +24,17 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500i" rel="stylesheet">
 
     </head>
-
+            <div id="loading" class="se-pre-con"></div>
+            <h2 id="prencher" hidden></h2>
+            <h2 id="prencher_empresa" hidden></h2>
     <body>
-
+    <script type="text/javascript">
+        var type = "<?php echo $type ?>";
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="js/search.js"></script>
+    <script src="js/search_empresa.js"></script>
     </body>
 </html>

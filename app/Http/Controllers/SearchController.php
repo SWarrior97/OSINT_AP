@@ -10,7 +10,7 @@ class SearchController extends Controller
         $nif = $request->nif;
         $name = $request->name;
         $phone = $request->phone;
-       
+        $type = $request->type;
 
         if($nif != null){
             if(strlen((string)$nif)!= 9){
@@ -31,7 +31,7 @@ class SearchController extends Controller
         //dd($nif);
         
         //return view('result')->with('nif','name','phone');
-        return view('result',compact('nif','name','phone'));
+        return view('result',compact('nif','name','phone','type'));
         //return redirect('/test')->with('nif','name','phone');
     }
 
