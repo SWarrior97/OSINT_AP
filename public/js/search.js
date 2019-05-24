@@ -16,15 +16,10 @@ $(document).ready(function () {
         $(".se-pre-con").fadeOut("slow");
         var html = document.getElementById("prencher").innerHTML;
         var splitedData = html.split("[");
-        //console.log(splitedData[1]);
-        //console.log(typeof splitedData[1]);
         var splitted = splitedData[1].split("}");
-        //console.log(splitted);
 
         for (var i = 0; i < splitted.length; i++) {
-            //console.log(i+" "+splitted[i]+"\n");
             var data = splitted[i].split('"');
-            //console.log(teste);
             var numero = data[3];
             var nome = data[7];
             var ilha = data[11];
@@ -33,16 +28,20 @@ $(document).ready(function () {
                         "nome:"+nome+"\n"+
                         "ilha:"+ilha+"\n"+
                         "concelho:"+concelho+"\n");
+
+                        $.ajax({
+                            type : 'GET',
+                            url : '/inserirData/'+numero+'/'+nome+'/'+ilha+'/'+concelho,
+                        
+                        }).done(function(resposta) {
+                            console.log("INSERT");
+                        }).fail(function(jqXHR, textStatus ) {
+                            //console.log("Request failed: " + textStatus);
+                        });
+
         }
-
-        var jsonData = JSON.parse(splitedData[1]);
-
-        //console.log(typeof jsonData);
-        
-    
     }).fail(function(jqXHR, textStatus ) {
         //console.log("Request failed: " + textStatus);
-    
     });
 
     if (type == "singular"){

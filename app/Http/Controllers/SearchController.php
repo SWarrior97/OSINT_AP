@@ -35,5 +35,9 @@ class SearchController extends Controller
         //return redirect('/test')->with('nif','name','phone');
     }
 
+
+    public function inserirData($numero,$nome,$ilha,$concelho){
+        
+    }
     
 }

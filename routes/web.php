@@ -16,3 +16,6 @@ Route::get('/', function () {
 });
 
 Route::post('/search', 'SearchController@search')->name('search');
+
+
+Route::get('/inserirData/{numer}/{nome}/{ilha}/{concelho}', 'SearchController@inserirData');
