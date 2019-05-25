@@ -17,6 +17,27 @@ $(document).ready(function () {
         var html = document.getElementById("prencher").innerHTML;
         var splitedData = html.split("[");
         var splitted = splitedData[1].split("}");
+        var table = document.getElementById("myTable");
+        table.removeAttribute("hidden");
+        var tr = document.createElement('tr');
+        
+        var td = document.createElement('td');
+        td.innerHTML = "Name";
+        tr.appendChild(td);
+        
+        var td = document.createElement('td');
+        td.innerHTML = "Phone Number";
+        tr.appendChild(td);
+        
+        var td = document.createElement('td');
+        td.innerHTML = "Island";
+        tr.appendChild(td);
+        
+        var td = document.createElement('td');
+        td.innerHTML = "District";
+        tr.appendChild(td);
+        
+        table.appendChild(tr);
 
         for (var i = 0; i < splitted.length; i++) {
             var data = splitted[i].split('"');
@@ -24,23 +45,64 @@ $(document).ready(function () {
             var nome = data[7];
             var ilha = data[11];
             var concelho = data[15];
-            console.log("Numero:"+numero+"\n"+
+           /* console.log("Numero:"+numero+"\n"+
                         "nome:"+nome+"\n"+
                         "ilha:"+ilha+"\n"+
-                        "concelho:"+concelho+"\n");
+                        "concelho:"+concelho+"\n");*/
 
-                        if(nome.includes(name)){
-                            $('#prencher_nome').html(nome);
-                            $('#prencher_phone').html(numero);
-                            $('#prencher_ilha').html(ilha);
-                            $('#prencher_concelho').html(concelho);
+                        //console.log(name);
+                        console.log(phone)
+
+                        if(nome == null || name == null || name ==''){
+
+                        }else{
+                            if(nome.toLowerCase().includes(name.toLowerCase())){
+                                //TODO
+                                var tr = document.createElement('tr');
+        
+                                var td = document.createElement('td');
+                                td.innerHTML = nome;
+                                tr.appendChild(td);
+
+                                var td = document.createElement('td');
+                                td.innerHTML = numero;
+                                tr.appendChild(td);
+
+                                var td = document.createElement('td');
+                                td.innerHTML = ilha;
+                                tr.appendChild(td);
+
+                                var td = document.createElement('td');
+                                td.innerHTML = concelho;
+                                tr.appendChild(td);
+
+                                table.appendChild(tr);
+                            }
                         }
 
+                        
+
                         if(phone==numero){
-                            $('#prencher_nome').html(nome);
-                            $('#prencher_phone').html(numero);
-                            $('#prencher_ilha').html(ilha);
-                            $('#prencher_concelho').html(concelho);
+                           //TODO
+                           var tr = document.createElement('tr');
+        
+                           var td = document.createElement('td');
+                           td.innerHTML = nome;
+                           tr.appendChild(td);
+
+                           var td = document.createElement('td');
+                           td.innerHTML = numero;
+                           tr.appendChild(td);
+
+                           var td = document.createElement('td');
+                           td.innerHTML = ilha;
+                           tr.appendChild(td);
+
+                           var td = document.createElement('td');
+                           td.innerHTML = concelho;
+                           tr.appendChild(td);
+
+                           table.appendChild(tr);
                         }
 
                         /*$.ajax({

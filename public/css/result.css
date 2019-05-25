@@ -9,3 +9,7 @@
 	z-index: 9999;
 	background: url(img/loader-64x/Preloader_2.gif) center no-repeat #fff;
 }
+
+table, td {
+	border: 1px solid black;
+  }
