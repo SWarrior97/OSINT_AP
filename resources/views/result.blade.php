@@ -24,6 +24,21 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500i" rel="stylesheet">
 
     </head>
+
+    <header id="header">
+		<div class="container">
+			<div class="row align-items-center justify-content-between d-flex">
+				<div id="logo">
+					<a href="{{route('welcome')}}"><img src="img/OSINT_TEST.png" alt="" title="" /></a>
+				</div>
+				<nav id="nav-menu-container">
+					<ul class="nav-menu">
+						
+					</ul>
+				</nav><!-- #nav-menu-container -->
+			</div>
+		</div>
+	</header>
             <div id="loading" class="se-pre-con"></div>
             <h2 id="prencher" hidden></h2>
             
