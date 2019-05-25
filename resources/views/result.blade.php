@@ -26,10 +26,15 @@
     </head>
             <div id="loading" class="se-pre-con"></div>
             <h2 id="prencher" hidden></h2>
-            <h2 id="prencher_empresa" hidden></h2>
+            <h2 id="prencher_nome"></h2>
+            <h2 id="prencher_phone"></h2>
+            <h2 id="prencher_ilha"></h2>
+            <h2 id="prencher_concelho"></h2>
     <body>
     <script type="text/javascript">
         var type = "<?php echo $type ?>";
+        var name = "<?php echo $name ?>";
+        var phone = "<?php echo $phone ?>";
     </script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>

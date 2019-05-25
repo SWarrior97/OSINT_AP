@@ -29,7 +29,21 @@ $(document).ready(function () {
                         "ilha:"+ilha+"\n"+
                         "concelho:"+concelho+"\n");
 
-                        $.ajax({
+                        if(nome.includes(name)){
+                            $('#prencher_nome').html(nome);
+                            $('#prencher_phone').html(numero);
+                            $('#prencher_ilha').html(ilha);
+                            $('#prencher_concelho').html(concelho);
+                        }
+
+                        if(phone==numero){
+                            $('#prencher_nome').html(nome);
+                            $('#prencher_phone').html(numero);
+                            $('#prencher_ilha').html(ilha);
+                            $('#prencher_concelho').html(concelho);
+                        }
+
+                        /*$.ajax({
                             type : 'GET',
                             url : '/inserirData/'+numero+'/'+nome+'/'+ilha+'/'+concelho,
                         
@@ -37,7 +51,7 @@ $(document).ready(function () {
                             console.log("INSERT");
                         }).fail(function(jqXHR, textStatus ) {
                             //console.log("Request failed: " + textStatus);
-                        });
+                        });*/
 
         }
     }).fail(function(jqXHR, textStatus ) {
