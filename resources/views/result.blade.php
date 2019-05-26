@@ -36,6 +36,7 @@
         </header>
             <div id="loading" class="se-pre-con"></div>
             <h2 id="prencher" hidden></h2>
+            <h2 id="prencher_empresa" hidden></h2>
             
             <table id="myTable" hidden>
             </table>

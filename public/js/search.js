@@ -70,6 +70,7 @@ $(document).ready(function () {
                     tr.appendChild(td);
 
                     table.appendChild(tr);
+
                 }
             }
 
@@ -95,27 +96,40 @@ $(document).ready(function () {
                 tr.appendChild(td);
 
                 table.appendChild(tr);
+
             }
         }
     }).fail(function(jqXHR, textStatus ) {
         //console.log("Request failed: " + textStatus);
     });
-
-    if (type == "singular"){
-        //pessoas
-    }else{
-        //empresas
+    
         $.ajax({
             type : 'GET',
             url : 'https://cors-anywhere.herokuapp.com/https://www.paginasamarelas.cv/pt/procurar-resultados?SearchForm%5Bwhat%5D=caixa+economica&SearchForm%5Bwhere%5D=',
-            dataType: "html",
         
         }).done(function(resposta) {
-            //console.log(resposta);
+            var result = $(resposta).find("#w0");
+            //console.log(result[0].childNodes[0].childNodes[1].childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[1].href);
+            var link = result[0].childNodes[0].childNodes[1].childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[1].href;
+            var splittedLink = link.split('test');
+            //console.log(splittedLink[1]);
+            var defLink = 'www.paginasamarelas.cv'+splittedLink[1];
+            //console.log(defLink);
+
+            $.ajax({
+                type : 'GET',
+                url : 'https://cors-anywhere.herokuapp.com/www.paginasamarelas.cv'+splittedLink[1],
+            
+            }).done(function(resposta) {
+                console.log(resposta);
+            }).fail(function(jqXHR, textStatus ) {
+                //console.log("Request failed: " + textStatus);
+            });
+    
+
         }).fail(function(jqXHR, textStatus ) {
             //console.log("Request failed: " + textStatus);
         });
-    }
 
     
 });
