@@ -1,7 +1,7 @@
 $(document).ready(function () {
     "use strict";
 
-    
+    document.getElementById("mobile-nav-toggle").setAttribute("hidden", true);
 
     var loading = $("#loading");
     loading.show();
@@ -45,76 +45,57 @@ $(document).ready(function () {
             var nome = data[7];
             var ilha = data[11];
             var concelho = data[15];
-           /* console.log("Numero:"+numero+"\n"+
-                        "nome:"+nome+"\n"+
-                        "ilha:"+ilha+"\n"+
-                        "concelho:"+concelho+"\n");*/
-
-                        //console.log(name);
-                        console.log(phone)
-
-                        if(nome == null || name == null || name ==''){
-
-                        }else{
-                            if(nome.toLowerCase().includes(name.toLowerCase())){
-                                //TODO
-                                var tr = document.createElement('tr');
         
-                                var td = document.createElement('td');
-                                td.innerHTML = nome;
-                                tr.appendChild(td);
 
-                                var td = document.createElement('td');
-                                td.innerHTML = numero;
-                                tr.appendChild(td);
+            if(nome == null || name == null || name ==''){
 
-                                var td = document.createElement('td');
-                                td.innerHTML = ilha;
-                                tr.appendChild(td);
+            }else{
+                if(nome.toLowerCase().includes(name.toLowerCase())){
+                    var tr = document.createElement('tr');
 
-                                var td = document.createElement('td');
-                                td.innerHTML = concelho;
-                                tr.appendChild(td);
+                    var td = document.createElement('td');
+                    td.innerHTML = nome;
+                    tr.appendChild(td);
 
-                                table.appendChild(tr);
-                            }
-                        }
+                    var td = document.createElement('td');
+                    td.innerHTML = numero;
+                    tr.appendChild(td);
+
+                    var td = document.createElement('td');
+                    td.innerHTML = ilha;
+                    tr.appendChild(td);
+
+                    var td = document.createElement('td');
+                    td.innerHTML = concelho;
+                    tr.appendChild(td);
+
+                    table.appendChild(tr);
+                }
+            }
 
                         
 
-                        if(phone==numero){
-                           //TODO
-                           var tr = document.createElement('tr');
-        
-                           var td = document.createElement('td');
-                           td.innerHTML = nome;
-                           tr.appendChild(td);
+            if(phone==numero){
+                var tr = document.createElement('tr');
 
-                           var td = document.createElement('td');
-                           td.innerHTML = numero;
-                           tr.appendChild(td);
+                var td = document.createElement('td');
+                td.innerHTML = nome;
+                tr.appendChild(td);
 
-                           var td = document.createElement('td');
-                           td.innerHTML = ilha;
-                           tr.appendChild(td);
+                var td = document.createElement('td');
+                td.innerHTML = numero;
+                tr.appendChild(td);
 
-                           var td = document.createElement('td');
-                           td.innerHTML = concelho;
-                           tr.appendChild(td);
+                var td = document.createElement('td');
+                td.innerHTML = ilha;
+                tr.appendChild(td);
 
-                           table.appendChild(tr);
-                        }
+                var td = document.createElement('td');
+                td.innerHTML = concelho;
+                tr.appendChild(td);
 
-                        /*$.ajax({
-                            type : 'GET',
-                            url : '/inserirData/'+numero+'/'+nome+'/'+ilha+'/'+concelho,
-                        
-                        }).done(function(resposta) {
-                            console.log("INSERT");
-                        }).fail(function(jqXHR, textStatus ) {
-                            //console.log("Request failed: " + textStatus);
-                        });*/
-
+                table.appendChild(tr);
+            }
         }
     }).fail(function(jqXHR, textStatus ) {
         //console.log("Request failed: " + textStatus);

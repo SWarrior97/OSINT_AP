@@ -13,3 +13,76 @@
 table, td {
 	border: 1px solid black;
   }
+
+
+  #myTable {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+  }
+  
+  #myTable td, #myTable th {
+	border: 1px solid #ddd;
+	padding: 8px;
+  }
+  
+  #myTable tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #myTable tr:hover {background-color: #ddd;}
+  
+  #myTable th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #4CAF50;
+	color: white;
+  }
+
+
+  body {
+	background-image:url(../img/background.png);
+}
+
+#back-top {
+	position: fixed;
+	right: 20px;
+	bottom: 0px;
+	cursor: pointer;
+	z-index: 9999999; }
+	@media (max-width: 768px) {
+		#back-top {
+		right: 5px; } }
+	#back-top a {
+		background: url(../img/rocket.png) no-repeat;
+		background-size: 95% 80%;
+		width: 50px;
+		height: 116px;
+		display: block; }
+		@media (max-width: 768px) {
+		#back-top a {
+			width: 35px;
+			height: 74px; } }
+
+		.tooltip {
+			position: relative;
+			display: inline-block;
+			border-bottom: 1px dotted black;
+			}
+
+			.tooltip .tooltiptext {
+			visibility: hidden;
+			width: 120px;
+			background-color: black;
+			color: #fff;
+			text-align: center;
+			border-radius: 6px;
+			padding: 5px 0;
+
+			/* Position the tooltip */
+			position: absolute;
+			z-index: 1;
+			}
+
+			.tooltip:hover .tooltiptext {
+			visibility: visible;
+			} 
