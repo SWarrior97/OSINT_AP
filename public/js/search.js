@@ -99,37 +99,161 @@ $(document).ready(function () {
 
             }
         }
+
     }).fail(function(jqXHR, textStatus ) {
         //console.log("Request failed: " + textStatus);
     });
-    
+
+    if(name == null || name ==''){
+
+    }else{
+        var str = name.replace(/\s+/g, '+');
+        //console.log(str);
+        var link = 'https://cors-anywhere.herokuapp.com/https://www.paginasamarelas.cv/pt/procurar-resultados?SearchForm%5Bwhat%5D='+str+'&SearchForm%5Bwhere%5D=';
         $.ajax({
             type : 'GET',
-            url : 'https://cors-anywhere.herokuapp.com/https://www.paginasamarelas.cv/pt/procurar-resultados?SearchForm%5Bwhat%5D=caixa+economica&SearchForm%5Bwhere%5D=',
+            url : link,
         
         }).done(function(resposta) {
-            var result = $(resposta).find("#w0");
-            //console.log(result[0].childNodes[0].childNodes[1].childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[1].href);
-            var link = result[0].childNodes[0].childNodes[1].childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[1].href;
-            var splittedLink = link.split('test');
-            //console.log(splittedLink[1]);
-            var defLink = 'www.paginasamarelas.cv'+splittedLink[1];
-            //console.log(defLink);
-
-            $.ajax({
-                type : 'GET',
-                url : 'https://cors-anywhere.herokuapp.com/www.paginasamarelas.cv'+splittedLink[1],
+            var table = document.getElementById("myTable_2");
+            table.removeAttribute("hidden");
+            //var tr = document.createElement('tr');
             
-            }).done(function(resposta) {
-                console.log(resposta);
-            }).fail(function(jqXHR, textStatus ) {
-                //console.log("Request failed: " + textStatus);
-            });
-    
+            /*var td = document.createElement('td');
+            td.innerHTML = "Site";
+            tr.appendChild(td);
+            
+            var td = document.createElement('td');
+            td.innerHTML = "Latitude";
+            tr.appendChild(td);
+            
+            var td = document.createElement('td');
+            td.innerHTML = "Longitude";
+            tr.appendChild(td);
+            
+            var td = document.createElement('td');
+            td.innerHTML = "Phone";
+            tr.appendChild(td);
+            
+            table.appendChild(tr);*/
 
+
+            var result = $(resposta).find("#w0");
+            var ul = result[0].childNodes[0].childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[1];
+            var site = ul.childNodes[1].childNodes[1].href; //Possivel sempre i guess se tiver site
+            
+            if(site != null){
+                var maintr = document.createElement('tr');
+            
+                var td = document.createElement('td');
+                td.innerHTML = "Site";
+                maintr.appendChild(td);
+                table.appendChild(maintr);
+
+                var secondTr = document.createElement('tr');
+
+                var td = document.createElement('td');
+                td.innerHTML = site;
+                secondTr.appendChild(td);
+                table.appendChild(secondTr);
+            }
+
+                
+            
+
+            for(var i = 0; i<ul.childNodes.length;i++){
+                if(ul.childNodes[i].className != null){
+                    if(ul.childNodes[i].className.includes('direction')){
+                        var direction = ul.childNodes[i].childNodes[1].href.split('.test')[1];
+
+                        $.ajax({
+                            type : 'GET',
+                            url : 'https://cors-anywhere.herokuapp.com/https://www.paginasamarelas.cv'+direction,
+                        
+                        }).done(function(resposta) {
+                            //console.log(resposta);
+                            var result = $(resposta).find("#getDirectionsForm");
+                            var lat = result[0].childNodes[5].childNodes[1].value;
+                            var long = result[0].childNodes[7].childNodes[1].value;
+
+                            if(lat != null){
+                               // var tr = document.createElement('tr');
+            
+                                var td = document.createElement('td');
+                                td.innerHTML = "Latitude";
+                                maintr.appendChild(td);
+                                //table.appendChild(tr);
+
+                                //var tr = document.createElement('tr');
+
+                                var td = document.createElement('td');
+                                td.innerHTML = lat;
+                                secondTr.appendChild(td);
+                                //table.appendChild(tr);
+
+                                //longitude
+                                //var tr = document.createElement('tr');
+            
+                                var td = document.createElement('td');
+                                td.innerHTML = "Latitude";
+                                maintr.appendChild(td);
+                                //table.appendChild(tr);
+
+                                //var tr = document.createElement('tr');
+
+                                var td = document.createElement('td');
+                                td.innerHTML = long;
+                                secondTr.appendChild(td);
+                                //table.appendChild(tr);
+
+                                var mapOptions = {"center":new google.maps.LatLng(lat, long),"zoom":16};
+                                var container = document.getElementById('gmap0-map-canvas');
+                                container.style.width = 'autopx';
+                                container.style.height = '450px';
+                                var gmap0 = new google.maps.Map(container, mapOptions);
+                                var gmarker1 = new google.maps.Marker({"map":gmap0,"position":new google.maps.LatLng(lat, long),"title":name});
+
+                            }
+                            //console.log(lat);
+                            
+                        });
+                    }
+
+                    if(ul.childNodes[i].className.includes('phone')){
+                        var ulTel =ul.childNodes[i].childNodes[3];
+                        for(var j = 0; j<ulTel.childNodes.length;j++){
+                            if(ulTel.childNodes[j].className != null){
+                                if(ulTel.childNodes[j].childNodes[1].childNodes[2] != null){
+                                    var phones = ulTel.childNodes[j].childNodes[1].childNodes[2];
+                                    //console.log(typeof phones);
+                                    var td = document.createElement('td');
+                                    td.innerHTML = "Phones";
+                                    maintr.appendChild(td);
+
+                                    var td = document.createElement('td');
+                                    td.innerHTML = phones;
+                                    secondTr.appendChild(td);
+                                //table.appendChild(tr);
+                                }else{
+                                    //console.log(ulTel.childNodes[j].childNodes[2]);
+                                    var phones = ulTel.childNodes[j].childNodes[2];
+                                    var td = document.createElement('td');
+                                    td.innerHTML = "Phones";
+                                    maintr.appendChild(td);
+
+                                    var td = document.createElement('td');
+                                    td.innerHTML =  phones;
+                                    secondTr.appendChild(td);
+                                }  
+                            }
+                        }
+                    }
+                }
+            }
+
+    
         }).fail(function(jqXHR, textStatus ) {
             //console.log("Request failed: " + textStatus);
         });
-
-    
+    }
 });

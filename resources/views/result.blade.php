@@ -41,6 +41,17 @@
             <table id="myTable" hidden>
             </table>
 
+            <table id="myTable_2" hidden>
+            </table>
+
+            <div class="mapWrap">
+	            <div class="mapResult">
+		            <div id="gmap0-map-canvas">
+	
+		            </div> 
+	            </div>
+            </div>
+
             <div id="back-top" class="tooltip">
                 <a id="go_top" title="Go to Top" href="#"></a>
                 <span class="tooltiptext">Back Top</span>
@@ -51,7 +62,7 @@
         var phone = "<?php echo $phone ?>";
 
     </script>
-    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqQK6S-LH37QTeDXX6qMSe6F-onRk1ilA&callback=initMap&amp;language=pt-PT&amp;version=3.1.18"async defer></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
