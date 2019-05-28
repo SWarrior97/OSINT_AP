@@ -224,8 +224,9 @@ $(document).ready(function () {
                         for(var j = 0; j<ulTel.childNodes.length;j++){
                             if(ulTel.childNodes[j].className != null){
                                 if(ulTel.childNodes[j].childNodes[1].childNodes[2] != null){
-                                    var phones = ulTel.childNodes[j].childNodes[1].childNodes[2];
-                                    //console.log(typeof phones);
+                                    //var phones = ulTel.childNodes[j].childNodes[1].childNodes[2];
+                                    //console.log(ulTel.childNodes[j].childNodes[1].innerHTML.split(">")[2]);
+                                    var phones = ulTel.childNodes[j].childNodes[1].innerHTML.split(">")[2];
                                     var td = document.createElement('td');
                                     td.innerHTML = "Phones";
                                     maintr.appendChild(td);
@@ -235,8 +236,8 @@ $(document).ready(function () {
                                     secondTr.appendChild(td);
                                 //table.appendChild(tr);
                                 }else{
-                                    //console.log(ulTel.childNodes[j].childNodes[2]);
-                                    var phones = ulTel.childNodes[j].childNodes[2];
+                                    //console.log(ulTel.childNodes[j].innerHTML.split(">")[2]);
+                                    var phones = ulTel.childNodes[j].innerHTML.split(">")[2];
                                     var td = document.createElement('td');
                                     td.innerHTML = "Phones";
                                     maintr.appendChild(td);
