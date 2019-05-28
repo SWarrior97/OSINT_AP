@@ -228,7 +228,7 @@ $(document).ready(function () {
                                     //console.log(ulTel.childNodes[j].childNodes[1].innerHTML.split(">")[2]);
                                     var phones = ulTel.childNodes[j].childNodes[1].innerHTML.split(">")[2];
                                     var td = document.createElement('td');
-                                    td.innerHTML = "Phones";
+                                    td.innerHTML = "Phone";
                                     maintr.appendChild(td);
 
                                     var td = document.createElement('td');
@@ -239,7 +239,7 @@ $(document).ready(function () {
                                     //console.log(ulTel.childNodes[j].innerHTML.split(">")[2]);
                                     var phones = ulTel.childNodes[j].innerHTML.split(">")[2];
                                     var td = document.createElement('td');
-                                    td.innerHTML = "Phones";
+                                    td.innerHTML = "Phone";
                                     maintr.appendChild(td);
 
                                     var td = document.createElement('td');
