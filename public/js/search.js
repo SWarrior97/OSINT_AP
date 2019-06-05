@@ -164,13 +164,13 @@ $(document).ready(function () {
             for(var i = 0; i<ul.childNodes.length;i++){
                 if(ul.childNodes[i].className != null){
                     if(ul.childNodes[i].className.includes('direction')){
-                        //var direction = ul.childNodes[i].childNodes[1].href.split('.test')[1];
-                        var splitted = ul.childNodes[i].childNodes[1].href.split('.')[1].split('/');
-                        var newDirection = '/'+splitted[1]+'/'+splitted[2]+'/'+splitted[3]+'/'+splitted[4];
+                        var direction = ul.childNodes[i].childNodes[1].href.split('.net')[1];
+                        //var splitted = ul.childNodes[i].childNodes[1].href.split('.')[1].split('/');
+                        //var newDirection = '/'+splitted[1]+'/'+splitted[2]+'/'+splitted[3]+'/'+splitted[4];
                         //console.log(newDirection);
                         $.ajax({
                             type : 'GET',
-                            url : 'https://cors-anywhere.herokuapp.com/https://www.paginasamarelas.cv'+newDirection,
+                            url : 'https://cors-anywhere.herokuapp.com/https://www.paginasamarelas.cv'+direction,
                         
                         }).done(function(resposta) {
                             //console.log(resposta);
