@@ -9,7 +9,7 @@ $(document).ready(function () {
         type : 'GET',
         url : 'https://cors-anywhere.herokuapp.com/http://zap.cvmultimedia.cv/bitchous/?pagina=voipcall',
         dataType: "html",
-    
+
     }).done(function(resposta) {
         $('#prencher').html(resposta);
         loading.hide();
@@ -20,23 +20,23 @@ $(document).ready(function () {
         var table = document.getElementById("myTable");
         table.removeAttribute("hidden");
         var tr = document.createElement('tr');
-        
+
         var td = document.createElement('td');
         td.innerHTML = "Name";
         tr.appendChild(td);
-        
+
         var td = document.createElement('td');
         td.innerHTML = "Phone Number";
         tr.appendChild(td);
-        
+
         var td = document.createElement('td');
         td.innerHTML = "Island";
         tr.appendChild(td);
-        
+
         var td = document.createElement('td');
         td.innerHTML = "District";
         tr.appendChild(td);
-        
+
         table.appendChild(tr);
 
         for (var i = 0; i < splitted.length; i++) {
@@ -45,7 +45,7 @@ $(document).ready(function () {
             var nome = data[7];
             var ilha = data[11];
             var concelho = data[15];
-        
+
 
             if(nome == null || name == null || name ==''){
 
@@ -54,7 +54,12 @@ $(document).ready(function () {
                     var tr = document.createElement('tr');
 
                     var td = document.createElement('td');
-                    td.innerHTML = nome;
+                    var a = document.createElement('a');
+                    a.setAttribute('href', "http://facebook.com");
+                    a.innerHTML = nome;
+                    a.addEventListener("mouseover", func, false);
+                    //td.innerHTML = nome;
+                    td.appendChild(a);
                     tr.appendChild(td);
 
                     var td = document.createElement('td');
@@ -74,7 +79,7 @@ $(document).ready(function () {
                 }
             }
 
-                        
+
 
             if(phone==numero){
                 var tr = document.createElement('tr');
@@ -104,6 +109,11 @@ $(document).ready(function () {
         //console.log("Request failed: " + textStatus);
     });
 
+    function func()
+    {
+        alert("Paginas amarelas \n CVMultimedia");
+    }
+
     if(name == null || name ==''){
 
     }else{
@@ -113,53 +123,61 @@ $(document).ready(function () {
         $.ajax({
             type : 'GET',
             url : link,
-        
+
         }).done(function(resposta) {
             var table = document.getElementById("myTable_2");
             table.removeAttribute("hidden");
             //var tr = document.createElement('tr');
-            
+
             /*var td = document.createElement('td');
             td.innerHTML = "Site";
             tr.appendChild(td);
-            
+
             var td = document.createElement('td');
             td.innerHTML = "Latitude";
             tr.appendChild(td);
-            
+
             var td = document.createElement('td');
             td.innerHTML = "Longitude";
             tr.appendChild(td);
-            
+
             var td = document.createElement('td');
             td.innerHTML = "Phone";
             tr.appendChild(td);
-            
+
             table.appendChild(tr);*/
 
 
             var result = $(resposta).find("#w0");
             var ul = result[0].childNodes[0].childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[1];
             var site = ul.childNodes[1].childNodes[1].href; //Possivel sempre i guess se tiver site
-            
+
             if(site != null){
                 var maintr = document.createElement('tr');
-            
+
                 var td = document.createElement('td');
                 td.innerHTML = "Site";
+
+
                 maintr.appendChild(td);
                 table.appendChild(maintr);
 
                 var secondTr = document.createElement('tr');
 
                 var td = document.createElement('td');
-                td.innerHTML = site;
+                var a = document.createElement('a');
+                var completeSite = "www."+site;
+                a.setAttribute('href', completeSite);
+                a.innerHTML = site;
+                td.appendChild(a);
+
+                //td.innerHTML = site;
                 secondTr.appendChild(td);
                 table.appendChild(secondTr);
             }
 
-                
-            
+
+
 
             for(var i = 0; i<ul.childNodes.length;i++){
                 if(ul.childNodes[i].className != null){
@@ -171,7 +189,7 @@ $(document).ready(function () {
                         $.ajax({
                             type : 'GET',
                             url : 'https://cors-anywhere.herokuapp.com/https://www.paginasamarelas.cv'+direction,
-                        
+
                         }).done(function(resposta) {
                             //console.log(resposta);
                             var result = $(resposta).find("#getDirectionsForm");
@@ -180,7 +198,7 @@ $(document).ready(function () {
 
                             if(lat != null){
                                // var tr = document.createElement('tr');
-            
+
                                 var td = document.createElement('td');
                                 td.innerHTML = "Latitude";
                                 maintr.appendChild(td);
@@ -195,7 +213,7 @@ $(document).ready(function () {
 
                                 //longitude
                                 //var tr = document.createElement('tr');
-            
+
                                 var td = document.createElement('td');
                                 td.innerHTML = "Latitude";
                                 maintr.appendChild(td);
@@ -217,7 +235,7 @@ $(document).ready(function () {
 
                             }
                             //console.log(lat);
-                            
+
                         });
                     }
 
@@ -247,14 +265,14 @@ $(document).ready(function () {
                                     var td = document.createElement('td');
                                     td.innerHTML =  phones;
                                     secondTr.appendChild(td);
-                                }  
+                                }
                             }
                         }
                     }
                 }
             }
 
-    
+
         }).fail(function(jqXHR, textStatus ) {
             //console.log("Request failed: " + textStatus);
         });
