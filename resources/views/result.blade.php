@@ -16,7 +16,48 @@
         <!-- Site Title -->
         <title>OSint Cape Vert</title>
         <link rel="stylesheet" href="css/result.css">
+        
+        <style>
 
+            /* The Modal (background) */
+            .modal {
+              display: none; /* Hidden by default */
+              position: fixed; /* Stay in place */
+              z-index: 1; /* Sit on top */
+              padding-top: 100px; /* Location of the box */
+              left: 0;
+              top: 0;
+              width: 100%; /* Full width */
+              height: 100%; /* Full height */
+              overflow: auto; /* Enable scroll if needed */
+              background-color: rgb(0,0,0); /* Fallback color */
+              background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
+
+            /* Modal Content */
+            .modal-content {
+              background-color: #fefefe;
+              margin: auto;
+              padding: 20px;
+              border: 1px solid #888;
+              width: 80%;
+            }
+
+            /* The Close Button */
+            .close {
+              color: #aaaaaa;
+              float: right;
+              font-size: 28px;
+              font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+              color: #000;
+              text-decoration: none;
+              cursor: pointer;
+            }
+            </style>
     </head>
     <body>
         <header id="header">
@@ -51,11 +92,23 @@
 		            </div> 
 	            </div>
             </div>
-
+            
             <div id="back-top" class="tooltip">
                 <a id="go_top" title="Go to Top" href="#"></a>
                 <span class="tooltiptext">Back Top</span>
 	        </div>
+        
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span id="close_modal" class="close">&times;</span>
+                <p>Fontes Consultadas <br>Páginas Amarelas<br>CVmultimédia</p>
+                <a class="btn btn-info" href="#"> Visit Perfil</a>
+              </div>
+
+            </div>
     <script type="text/javascript">
         var type = "<?php echo $type ?>";
         var name = "<?php echo $name ?>";
@@ -91,6 +144,5 @@
     <script src="js/main.js"></script>
     <script src="js/search.js"></script>
     <script src="js/search_empresa.js"></script>
-    
     </body>
 </html>

@@ -2,7 +2,11 @@ $(document).ready(function () {
     "use strict";
 
     document.getElementById("mobile-nav-toggle").setAttribute("hidden", true);
-
+    
+    document.getElementById("close_modal").addEventListener("click", function(){
+      $('#myModal').modal('hide');
+    });
+    
     var loading = $("#loading");
     loading.show();
     $.ajax({
@@ -55,9 +59,14 @@ $(document).ready(function () {
 
                     var td = document.createElement('td');
                     var a = document.createElement('a');
-                    a.setAttribute('href', "http://facebook.com");
+                    a.setAttribute('id','url');
+                    //a.setAttribute('href', "#");
                     a.innerHTML = nome;
-                    a.addEventListener("mouseover", func, false);
+                    a.onclick = function() {
+                        myModal
+                        $('#myModal').modal('show');
+                    };
+                    //a.addEventListener("mouseover", func, false);
                     //td.innerHTML = nome;
                     td.appendChild(a);
                     tr.appendChild(td);
@@ -113,6 +122,20 @@ $(document).ready(function () {
     {
         alert("Paginas amarelas \n CVMultimedia");
     }
+    
+    
+    document.onkeydown = function(evt) {
+        evt = evt || window.event;
+        var isEscape = false;
+        if ("key" in evt) {
+            isEscape = (evt.key === "Escape" || evt.key === "Esc");
+        } else {
+            isEscape = (evt.keyCode === 27);
+        }
+        if (isEscape) {
+            $('#myModal').modal('hide');
+        }
+    };
 
     if(name == null || name ==''){
 
