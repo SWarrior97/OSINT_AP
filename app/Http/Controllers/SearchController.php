@@ -28,11 +28,16 @@ class SearchController extends Controller
             }
         }
         
-        //dd($nif);
+        //dd($request);
         
-        //return view('result')->with('nif','name','phone');
-        return view('result',compact('nif','name','phone','type'));
-        //return redirect('/test')->with('nif','name','phone');
+        if($request->type == "cv"){
+             return view('result',compact('nif','name','phone','type'));
+        }else{
+            //TODO page redes sociais
+            return view('resultSocial');
+        }
+        
+       
     }
 
 

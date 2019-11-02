@@ -76,10 +76,10 @@
 								<input type="number" placeholder="Nif" class="form-control" name="nif">
 								<input type="text" placeholder="Name" class="form-control" name="name">
 								<input type="number" placeholder="Phone" class="form-control" name="phone">
-								<!--<select id="input" class="form-control" name="type">
-									<option value="singular">Singular</option>
-									<option value="empresa">Empresa</option>
-								</select>-->
+								<select id="input" class="form-control" name="type">
+									<option value="cv">Cabo Verde</option>
+									<option value="rede_sociais">Redes Sociais</option>
+								</select>
 							<button type="submit" class="btn search-btn">Search</button>
 						</form>
 					</div>
